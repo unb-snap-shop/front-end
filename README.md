@@ -7,7 +7,9 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-<<<<<<< HEAD
+
+To run, clone this repository, cd into the project, run `npm install` followed by `npm run dev`. You should now be able to open the app on the specified port.
+
 # front-end
 The front end for snap-shop, a UNB project for SWE4403
 =======
