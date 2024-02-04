@@ -2,46 +2,43 @@ import { React, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai"
 import SnapShopLogo from "../../assets/logos/SnapShopLogo.png"
 import { Link } from 'react-router-dom'
+import Login from "../login/Login.jsx"
 
 const Navbar = () => {
-  // State to manage the navbar's visibility
+  // State to manage the navbar's visibility if needed
   const [nav, setNav] = useState(false);
 
-  // Toggle function to handle the navbar's display
+  const [seen, setSeen] = useState(false)
+
+  const toggleLogin = () => {
+    setSeen(!seen)
+  }
+
   const handleNav = () => {
     setNav(!nav);
   };
 
-  // Array containing navigation items
-  const navItems = [
-    { id: 1, text: "Customer Service" },
-    { id: 2, text: "Cart" },
-    { id: 3, text: "Resources" },
-    { id: 4, text: "About" },
-    { id: 5, text: "Contact" },
-  ];
-
   return (
-    <div className="bg-black flex justify-between items-center h-24 w-full px-4 text-white">
-      <img src={SnapShopLogo} width={180} height={180} />
-      <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
+    <div className="bg-white flex justify-between items-center h-24 w-full px-4 text-black">
+      <Link to="/">
+        <img src={SnapShopLogo} width={180} height={180} />
+      </Link>
 
-      {/* Desktop Navigation */}
       <ul className="hidden md:flex">
-        {/* {navItems.map((item) => (
-          <li
-            key={item.id}
-            className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
-          >
-            {item.text}
-          </li>
-        ))} */}
 
-        <li className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black">
+        <li className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-white">
           <Link to="/cart">Cart</Link>
+        </li>
+        <li 
+          className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-white" 
+          onClick={toggleLogin}
+        >
+          <h1>Log In</h1>
         </li>
       </ul>
 
+      {/* Conditionally render the Login component based on the seen state */}
+      { seen && <Login toggle={toggleLogin}/>  }
       
     </div>
   );
