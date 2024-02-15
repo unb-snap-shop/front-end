@@ -1,10 +1,11 @@
 import { React, useState } from "react";
 
-const Login = (props) => {
+const SignUp = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     // handle log in later
     props.toggle();
@@ -18,7 +19,7 @@ const Login = (props) => {
         id="login_modal"
       >
         <div className="modal-content">
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleSignUp}>
             <button
               type="button"
               className="btn btn-sm btn-circle absolute right-2 top-2"
@@ -57,6 +58,21 @@ const Login = (props) => {
                 Please choose a password.
               </p>
             </div>
+            <div class="mb-6">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="password"
+              >
+                Confirm Password
+              </label>
+              <input
+                class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder="******************"
+              />
+              <p class="text-red-500 text-xs italic">Confirm password.</p>
+            </div>
             <div class="flex items-center justify-between">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -78,4 +94,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default SignUp;
