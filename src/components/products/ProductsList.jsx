@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -8,14 +9,11 @@ function ProductList() {
     // Function to fetch products from Flask API
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/products");
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setProducts(data);
+        const response = await axios.get("http://localhost:5000/products");
+        setProducts(response.data);
       } catch (error) {
-        setError(error.message);
+        const errorMessage = error.response ? `HTTP error! Status: ${error.response.status}` : error.message;
+        setError(errorMessage);
       }
     };
 
