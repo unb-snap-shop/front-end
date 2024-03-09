@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../components/button/Button";
 import ProductList from "../components/products/ProductsList";
+import Product from "../components/product/Product";
 
 const HomePage = () => {
   const handleButtonClick = () => {
@@ -21,7 +22,7 @@ const HomePage = () => {
         type="primary"
       />
       <Button text="Payment" onClick={handleButtonClick} type="primary" />
-      <ProductList/>
+      <ProductList/>      
     </div>
   );
 };
