@@ -15,12 +15,6 @@ The front end for snap-shop, a UNB project for SWE4403
 =======
 # Start of snap-shop
 
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
