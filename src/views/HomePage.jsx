@@ -22,8 +22,7 @@ const HomePage = () => {
         type="primary"
       />
       <Button text="Payment" onClick={handleButtonClick} type="primary" />
-      <ProductList/>
-      <Product/>
+      <ProductList/>      
     </div>
   );
 };
