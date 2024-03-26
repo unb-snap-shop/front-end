@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 
 const Product = ({ product }) => {
   /**
@@ -22,6 +24,20 @@ const Product = ({ product }) => {
 
   const specs = product?.specifications
 
+  const handleClick = async () => {
+    try{
+      const response = await axios.post("http://localhost:5001/add_to_cart", {
+        productId: product.id,
+        productBrand: product.brand,
+        productName: product.model,
+        productPrice: product.price
+      });
+      console.log("Add to cart response:", response.data)
+    } catch (error) {
+      console.error("Error adding to cart:", error)
+    }
+  }
+
   return (
     // from flowbite using tailwind
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -44,6 +60,7 @@ const Product = ({ product }) => {
         <a
           href="#"
           class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          onClick={handleClick}
         >
           {product.price}
           <svg

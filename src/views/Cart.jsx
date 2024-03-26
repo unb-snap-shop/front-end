@@ -13,7 +13,7 @@ const Cart = () => {
     // Function to fetch cart from Flask API
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/test")
+        const response = await axios.get("http://localhost:5001/get_cart")
         setProducts(response.data)
         console.log(response.data)
       } catch (error) {
@@ -33,7 +33,13 @@ const Cart = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Test Endpoint</h1>
       <div>
-        <h1>{products}</h1> 
+        {/*<h1>{products}</h1> */}
+
+        {products.map((product) => (
+          <>
+            <h3>{product.productName}</h3>
+          </>
+        ))}
       </div>
     </div>
   );
