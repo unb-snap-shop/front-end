@@ -62,12 +62,17 @@ const AddProductModal = ({ onClose }) => {
         };
       }
   
-      const response = await axios.post("http://localhost:5001/create_component", {
-        component_type: selectedType,
+      const response = await axios.post("http://localhost:5000/create_component", {
+        type: selectedType,
+        brand: formData.brand,
+        model: formData.model,
         specifications: specifications,
+        price: formData.price,
       });
+      console.log(selectedType)
       console.log("Create component response:", response.data);
     } catch (error) {
+      console.log(selectedType)
       console.error("Error creating component:", error);
     }
   };
@@ -209,33 +214,32 @@ const AddProductModal = ({ onClose }) => {
               </>
             )}
             {selectedType === 'Storage' && (
-            <>
-              <div className="mb-4">
-                <label htmlFor="storageType" className="block mb-2 text-sm font-medium">Storage Type</label>
-                <input type="text" id="storageType" name="storageType" value={formData.storageType} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="formFactor" className="block mb-2 text-sm font-medium">Form Factor</label>
-                <input type="text" id="formFactor" name="formFactor" value={formData.formFactor} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="interface" className="block mb-2 text-sm font-medium">Interface</label>
-                <input type="text" id="interface" name="interface" value={formData.interface} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="rpm" className="block mb-2 text-sm font-medium">RPM</label>
-                <input type="text" id="rpm" name="rpm" value={formData.rpm} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="cache" className="block mb-2 text-sm font-medium">Cache</label>
-                <input type="text" id="cache" name="cache" value={formData.cache} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-              </div>
-            </>
-          )}
-
-            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-full sm:w-auto">
-              Add new product
-            </button>
+              <>
+                <div className="mb-4">
+                  <label htmlFor="storageType" className="block mb-2 text-sm font-medium">Storage Type</label>
+                  <input type="text" id="storageType" name="storageType" value={formData.storageType} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="formFactor" className="block mb-2 text-sm font-medium">Form Factor</label>
+                  <input type="text" id="formFactor" name="formFactor" value={formData.formFactor} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="interface" className="block mb-2 text-sm font-medium">Interface</label>
+                  <input type="text" id="interface" name="interface" value={formData.interface} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="rpm" className="block mb-2 text-sm font-medium">RPM</label>
+                  <input type="text" id="rpm" name="rpm" value={formData.rpm} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="cache" className="block mb-2 text-sm font-medium">Cache</label>
+                  <input type="text" id="cache" name="cache" value={formData.cache} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                </div>
+              </>
+            )}
+            <div className="flex justify-end mt-6">
+              <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:bg-blue-700">Create</button>
+            </div>
           </form>
         </div>
       </div>
@@ -244,4 +248,3 @@ const AddProductModal = ({ onClose }) => {
 };
 
 export default AddProductModal;
-
