@@ -101,7 +101,7 @@ const AddProductModal = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-40" id="backdrop" onClick={onClose}>
       <div className="flex justify-center items-center h-full" onClick={handleModalContentClick}>
-        <div className="relative bg-white rounded-lg shadow p-6 mx-auto my-8" style={{ width: '32rem' }}>
+        <div className="relative bg-white rounded-lg shadow p-6 mx-auto my-8 max-h-[80vh] overflow-y-auto" style={{ width: '32rem' }}>
           <div className="flex justify-between items-start p-2 rounded-t border-b">
             <h3 className="text-xl font-semibold">Create New Product</h3>
             <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5" onClick={onClose}>
