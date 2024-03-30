@@ -82,20 +82,19 @@ const AddProductModal = ({ onClose }) => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Call function to create component
+    
     await handleClick();
-    // Reset form data
+    //resetform
     setFormData({
       brand: '',
       model: '',
       price: '',
     });
-    // Close the modal
+    
     onClose();
   };
 
   const handleModalContentClick = (e) => {
-    // Prevent click inside the modal content from closing the modal
     e.stopPropagation();
   };
 
