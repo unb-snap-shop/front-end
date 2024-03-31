@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 # front-end - UI Service
   The front end for snap-shop, a UNB project for SWE4403
-=======
+
 # How to run the front end
 
 In the project directory, you can run:<br>
